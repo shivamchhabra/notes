@@ -1,0 +1,18 @@
+HashMap<String, ArrayList<Integer>> maps=new HashMaps<String, ArrayList<Integer>();
+
+ArrayList<Integer> arr=ArrayList<Integer>();
+
+arr.add(value);
+
+maps.put("key", arr);
+
+maps.get("key").contains(value);=>true/false
+
+HashMap<String,Integer> Name=new HashMap<String, Integer>();
+Name.put("Key",value);
+Name.containtValue(value);    true/false
+Name.containsKey("key");
+Name.replace("string", value);
+Name.size();
+Name.keySet();
+Name.values();
