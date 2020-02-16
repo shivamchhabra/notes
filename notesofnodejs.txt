@@ -1,0 +1,95 @@
+1 module.export=persons;
+ for exporting objects
+
+ for exporting class we do the same but we create an object further for it also
+
+2 module wrapper function
+  (function (exports,require,module,__filename,__dirname){
+
+  })
+
+3 for core module 
+  require('directfilename');
+  for within file 
+  require('./filename');
+4 to get filename only
+  require('path')
+  console.log(path.basename(__filename));
+
+  to get dir name(or the last folder)
+  require('path')
+  console.log(path.basename(__dirname));
+
+  to get extension name
+  require('path')
+  console.log(path.extname(__filename));
+
+  directly parse the filename path.parse
+  console.log(path.parse(__filename).further);
+
+  //concatinating path
+  console.log(path.join(__dirname,'text','index.html'));
+  res= __dirname/text/index.html
+
+5  // to create a folder
+   const fs=require('fs');
+   const path=require('path');
+
+    fs.mkdir(path.join(__dirname,'/testing'),{},(err)=>{
+      if(err)  throw err;
+      console.log('folder created');
+    }); 
+  // to create a file and write in file also(it just overwrites to the file))
+   fs.writeFile(path.join(__dirname,'/testing','write.txt'),'hello world!!',(err)=>{
+    if(err)  throw err;
+    console.log('file created and written');
+   
+   });
+   // to write further in the file
+   fs.appendFile(path.join(__dirname,'/testing','write.txt'),'love uh......',(err)=>{
+    if(err)  throw err;
+    console.log('file created and written');
+   });
+
+   to read a file
+   fs.readFile(path.join(__dirname,'testing','write.txt'), 'utf8', (err,data)=>
+   {
+    if(err) throw err;
+    console.log(data);
+    });
+
+   // to rename a file
+   fs.rename(path.join(__dirname,'testing','write.txt'),(path.join   (__dirname,'testing','write11.txt')),
+   err=>
+    {
+     if(err) throw err;
+     console.log('file renamed..');
+    });
+6 const url=require('url');
+const newurl= new URL('http://website.com:8000/hello/test.html?id=100&status=active');
+
+//serialised href or only href
+console.log(newurl.href);
+console.log(newurl.toString());
+
+// hostname
+console.log(newurl.host);
+//hostname without port number
+console.log(newurl.hostname);
+//pathname
+console.log(newurl.pathname);
+// serialized search or everything after ?
+console.log(newurl.search);
+//divide everything into objects after ?
+console.log(newurl.searchParams);
+//adding some parameters after ? dynamically
+newurl.searchParams.append('something', 'value');
+console.log(newurl.searchParams);
+
+// taking out everything after ? as java objects
+//loop through params
+newurl.searchParams.forEach((value,name)=>
+{
+    console.log(`${name}=>${value}`);
+});
+ 
